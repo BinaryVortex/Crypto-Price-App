@@ -1,0 +1,104 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('crypto.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Mukta', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 0, 150, 0.5), rgba(0, 204, 255, 0.5));
+    mix-blend-mode: overlay;
+    z-index: 1;
+    opacity: 0.8;
+    animation: gradientMove 20s infinite alternate;
+}
+
+@keyframes gradientMove {
+    0% {
+        transform: translateX(-20%);
+    }
+    100% {
+        transform: translateX(20%);
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2; /* Ensure the content is above the background effect */
+}
+
+.coin {
+    display: flex;
+    align-items: center;
+    background-color: #202022;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coin:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.coin-logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.coin-name {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.coin-name h3 {
+    color: #fff;
+    font-size: 18px;
+    margin: 0;
+}
+
+.coin-name span {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.coin-price {
+    text-align: right;
+}
+
+.coin-price .price {
+    display: block;
+    font-size: 20px;
+    color: #fff;
+}
+
+.coin-price .change {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.rising .coin-price .price {
+    color: #30ff20;
+}
+
+.falling .coin-price .price {
+    color: #ff4040;
+}
